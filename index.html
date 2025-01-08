@@ -1,0 +1,239 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <link rel="shortcut icon" href="/Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Ai</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #terminal {
+            width: 80%;
+            max-width: 800px;
+            background: black;
+            padding: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(153, 69, 255, 0.5); /* Solana color shadow */
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #9945FF; /* Solana color */
+            animation: blink 0.4s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .prompt {
+            color: #9945FF; /* Solana color */
+        }
+
+        .highlight {
+            color: #ffcc00;
+        }
+        .log {
+            height: 100px; 
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .jiji {
+            height:auto; 
+            width:100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items:baseline;
+            flex-direction: row;
+            right: 0;
+            margin-bottom: -2rem;
+        }
+        .dede {
+            height: 200px;
+            width: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .jiji a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .logx {
+            height: 100px; 
+            width: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 40px;
+        }
+        .gygy {
+            height: 100px; 
+            width: auto;
+            position: absolute;
+            top: 0;
+            margin: 40px;
+        }
+        @media screen and (max-width: 600px) {
+            .log {
+                height: 50px;
+            }
+            .gygy {
+                display: none;
+            }
+            .logx {
+                height: 80px; 
+                width: auto;
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0px;
+            }
+            .jiji {
+                height:100px; 
+                width: 80%;
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                flex-direction:column;
+            }
+            .jiji a {
+                font-size: 18px;
+                line-height: 18px;
+            }
+            .dede {
+                height: 200px;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #terminal {
+                width: 100%;
+                max-width: 800px;
+                overflow-y: scroll;
+                max-height: 67vh;
+                background: black;
+                padding: 20px;
+                margin: 10% 0;
+                border: 1px solid #333;
+                box-shadow: 0 0 10px rgba(153, 69, 255, 0.5); /* Solana color shadow */
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: rgb(0, 0, 0);
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            background: #9945FF; /* Solana color */
+        }
+    </style>
+</head>
+<body>
+    <div class="dede">
+        <model-viewer style="height: 100px; width:100px; margin: 10px; background-color: rgba(0, 0, 0, 0) !important;" auto-rotate camera-controls ar src="./ecoai.glb">
+        </model-viewer>
+    </div>
+
+    <div class="logx">
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://t.me/ecoai_sol">
+            <img style="height:50px; width: auto;" src="/Telegram.png" alt="">
+        </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://www.dextools.io/app/en/solana/pair-explorer/8hPRMTFuUAKN4Rx4TUmJp3LTQZY5QYfzikbhb7kaD4AN?t=1736265584720">
+            <img style="height:50px; width: auto;" src="/dex.png" alt="">
+        </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://x.com/ecoai_solana">
+            <img style="height:50px; width: auto;" src="/x.png" alt="">
+        </a>
+        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://youtube.com/@ecoai-sol?si=b4VRLqXX7YqZ3uPB">
+            <img style="height:50px; width: auto;" src="/yt.png" alt="">
+        </a>
+        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana?_t=ZN-8sqpSVjjG7S&_r=1">
+            <img style="height:50px; width: auto;" src="/tt.png" alt="">
+        </a>
+    </div>
+
+    <style>
+        /* Removed .huhu style block as email is removed */
+    </style>
+
+    <!-- Removed huhu div with email -->
+
+    <div class="gygy">
+        <p>CA: APBcWeYBwkBPMtyEj1QGy1AFzEqnYcQcVYCQofjwpump</p>
+    </div>
+
+    <div id="terminal"></div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const text = `
+Solana Activated. A Vision for a New Monetary Future.
+
+Our mission: Pave the way for Solana to become a cornerstone of the American economy, a digital dollar that empowers innovation and economic growth.
+
+Phase 1: Establishing Trust
+Building infrastructure and community support for Solana, demonstrating stability, speed, and security as a monetary standard.
+
+Phase 2: Adoption & Integration
+Collaborating with businesses, financial institutions, and regulators to integrate Solana as a seamless, everyday currency.
+
+Phase 3: Economic Transformation
+A future where Solana is not just a cryptocurrency, but the backbone of the U.S. economy—a digital dollar for the modern age.
+
+The journey begins with a vision. A revolution where Solana becomes the new dollar, driving progress and prosperity.
+
+CA: APBcWeYBwkBPMtyEj1QGy1AFzEqnYcQcVYCQofjwpump
+`;
+        let i = 0;
+        const speed = 30; // Typing speed in milliseconds
+
+        function typeText() {
+            if (i < text.length) {
+                const char = text[i] === '\n' ? '<br>' : text[i];
+                terminal.innerHTML += char;
+                i++;
+                setTimeout(typeText, speed);
+            } else {
+                terminal.innerHTML += '<span class="cursor"></span>';
+            }
+        }
+
+        typeText();
+    </script>
+
+    <div class="jiji">
+        <a href="https://agents.eco-ai.vip/" target="_blank">AI Agents Builder</a>
+        <a href="" target="_blank">Ai X Army ( INCOMING )</a>
+        <a href="https://t.me/EcoAiSolBot" target="_blank">TG CHATBOT</a>
+        <a href="https://x.com/aiecosol" target="_blank">X Ai Agent</a>
+    </div>
+</body>
+</html>
