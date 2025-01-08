@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana AI</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <link rel="shortcut icon" href="/Logo.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solana Ai</title>
     <style>
+        /* Base Styling */
         body {
             background-color: black;
             color: white;
@@ -18,43 +19,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
-
         #terminal {
             width: 80%;
             max-width: 800px;
             background: black;
             padding: 20px;
             border: 1px solid #333;
-            box-shadow: 0 0 10px rgba(153, 69, 255, 0.5); /* Solana color shadow */
+            box-shadow: 0 0 10px rgba(153, 69, 255, 0.5);
         }
-
         .cursor {
             display: inline-block;
             width: 4px;
             height: 16px;
-            background-color: #9945FF; /* Solana color */
+            background-color: #9945FF;
             animation: blink 0.4s steps(2, start) infinite;
         }
-
         @keyframes blink {
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-        .prompt {
-            color: #9945FF; /* Solana color */
-        }
-
-        .highlight {
-            color: #ffcc00;
-        }
-        .log {
-            height: 100px; 
-            width: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+        /* Social Links and Other Elements */
         .jiji {
             height:auto; 
             width:100%;
@@ -67,124 +53,150 @@
             right: 0;
             margin-bottom: -2rem;
         }
-        .dede {
-            height: 200px;
-            width: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
         .jiji a {
             color: white;
             text-decoration: none;
             font-size: 20px;
         }
+        .logx, .gygy, .dede {
+            position: absolute;
+        }
         .logx {
             height: 100px; 
-            width: auto;
-            position: absolute;
             top: 0;
             right: 0;
             margin: 40px;
         }
         .gygy {
             height: 100px; 
-            width: auto;
-            position: absolute;
             top: 0;
             margin: 40px;
         }
+        .dede {
+            height: 200px;
+            top: 0;
+            left: 0;
+        }
+        /* Modal Styling */
+        #agent-builder-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .agent-builder-container {
+            background: #1a1a1a;
+            border: 2px solid #9945FF;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            height: 90%;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(153, 69, 255, 0.5);
+            position: relative;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            color: #9945FF;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 20px;
+            color: #9945FF;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background: #9945FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background: #aa66ff;
+        }
+        .agent-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #292929;
+            border-radius: 5px;
+        }
+        .agent-item h3 {
+            margin: 0;
+            color: #9945FF;
+        }
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9945FF;
+            border-radius: 5px;
+        }
+        /* Media Queries for Responsiveness */
         @media screen and (max-width: 600px) {
-            .log {
-                height: 50px;
-            }
-            .gygy {
-                display: none;
+            #terminal {
+                overflow-y: scroll;
+                max-height: 67vh;
             }
             .logx {
                 height: 80px; 
-                width: auto;
-                position: absolute;
-                top: 0;
-                right: 0;
-                margin: 0px;
+                margin: 0;
             }
             .jiji {
+                flex-direction: column;
                 height:100px; 
                 width: 80%;
                 text-align: center;
-                position: absolute;
-                bottom: 0;
-                display: flex;
-                flex-direction:column;
             }
             .jiji a {
                 font-size: 18px;
                 line-height: 18px;
             }
             .dede {
-                height: 200px;
                 width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
             }
-            #terminal {
-                width: 100%;
-                max-width: 800px;
-                overflow-y: scroll;
-                max-height: 67vh;
-                background: black;
-                padding: 20px;
-                margin: 10% 0;
-                border: 1px solid #333;
-                box-shadow: 0 0 10px rgba(153, 69, 255, 0.5); /* Solana color shadow */
-            }
-        }
-        ::-webkit-scrollbar {
-            width: 2px;
-        }
-        ::-webkit-scrollbar-track {
-            background-color: rgb(0, 0, 0);
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb {
-            -webkit-border-radius: 5px;
-            border-radius: 5px;
-            background: #9945FF; /* Solana color */
         }
     </style>
 </head>
 <body>
+
     <div class="dede">
-        <model-viewer style="height: 100px; width:100px; margin: 10px; background-color: rgba(0, 0, 0, 0) !important;" auto-rotate camera-controls ar src="./ecoai.glb">
+        <model-viewer style="height: 100px; width:100px; margin: 10px; background-color: transparent;" auto-rotate camera-controls ar src="./ecoai.glb">
         </model-viewer>
     </div>
 
     <div class="logx">
-        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://t.me/ecoai_sol">
-            <img style="height:50px; width: auto;" src="/Telegram.png" alt="">
-        </a>
-        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://www.dextools.io/app/en/solana/pair-explorer/8hPRMTFuUAKN4Rx4TUmJp3LTQZY5QYfzikbhb7kaD4AN?t=1736265584720">
-            <img style="height:50px; width: auto;" src="/dex.png" alt="">
-        </a>
-        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://x.com/ecoai_solana">
-            <img style="height:50px; width: auto;" src="/x.png" alt="">
-        </a>
-        <a target="_blank" style="height:50px; text-decoration:none; width: auto;" href="https://youtube.com/@ecoai-sol?si=b4VRLqXX7YqZ3uPB">
-            <img style="height:50px; width: auto;" src="/yt.png" alt="">
-        </a>
-        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana?_t=ZN-8sqpSVjjG7S&_r=1">
-            <img style="height:50px; width: auto;" src="/tt.png" alt="">
-        </a>
+        <a target="_blank" href="https://t.me/ecoai_sol"><img style="height:50px;" src="/Telegram.png" alt=""></a>
+        <a target="_blank" href="https://www.dextools.io/app/en/solana/pair-explorer/"><img style="height:50px;" src="/dex.png" alt=""></a>
+        <a target="_blank" href="https://x.com/ecoai_solana"><img style="height:50px;" src="/x.png" alt=""></a>
+        <a target="_blank" href="https://youtube.com/@ecoai-sol"><img style="height:50px;" src="/yt.png" alt=""></a>
+        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana"><img style="height:50px;" src="/tt.png" alt=""></a>
     </div>
-
-    <style>
-        /* Removed .huhu style block as email is removed */
-    </style>
-
-    <!-- Removed huhu div with email -->
 
     <div class="gygy">
         <p>CA: APBcWeYBwkBPMtyEj1QGy1AFzEqnYcQcVYCQofjwpump</p>
@@ -192,7 +204,37 @@
 
     <div id="terminal"></div>
 
+    <div class="jiji">
+        <a href="#" id="open-agent-builder">AI Agent Builder</a>
+        <!-- Additional links can be placed here -->
+    </div>
+
+    <!-- Agent Builder Modal -->
+    <div id="agent-builder-modal">
+        <div class="agent-builder-container">
+            <div class="close-button" id="close-agent-builder">&times;</div>
+            <h1 style="text-align: center;">Agent Builder</h1>
+            <div id="agent-form">
+                <div class="form-group">
+                    <label for="agentName">Agent Name</label>
+                    <input type="text" id="agentName" placeholder="Enter agent name">
+                </div>
+                <div class="form-group">
+                    <label for="agentDescription">Description</label>
+                    <textarea id="agentDescription" rows="3" placeholder="Enter agent description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="agentPrompt">System Prompt</label>
+                    <textarea id="agentPrompt" rows="5" placeholder="Enter agent system prompt"></textarea>
+                </div>
+                <button id="addAgentButton">Add Agent</button>
+            </div>
+            <div id="agentItems" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
     <script>
+        // Typing animation for terminal
         const terminal = document.getElementById('terminal');
         const text = `
 Solana Activated. A Vision for a New Monetary Future.
@@ -213,8 +255,7 @@ The journey begins with a vision. A revolution where Solana becomes the new doll
 CA: APBcWeYBwkBPMtyEj1QGy1AFzEqnYcQcVYCQofjwpump
 `;
         let i = 0;
-        const speed = 30; // Typing speed in milliseconds
-
+        const speed = 30;
         function typeText() {
             if (i < text.length) {
                 const char = text[i] === '\n' ? '<br>' : text[i];
@@ -225,15 +266,76 @@ CA: APBcWeYBwkBPMtyEj1QGy1AFzEqnYcQcVYCQofjwpump
                 terminal.innerHTML += '<span class="cursor"></span>';
             }
         }
-
         typeText();
-    </script>
 
-    <div class="jiji">
-        <a href="https://agents.eco-ai.vip/" target="_blank">AI Agents Builder</a>
-        <a href="" target="_blank">Ai X Army ( INCOMING )</a>
-        <a href="https://t.me/EcoAiSolBot" target="_blank">TG CHATBOT</a>
-        <a href="https://x.com/aiecosol" target="_blank">X Ai Agent</a>
-    </div>
+        // Agent Builder Modal Logic
+        const openAgentBuilderButton = document.getElementById('open-agent-builder');
+        const closeAgentBuilderButton = document.getElementById('close-agent-builder');
+        const agentBuilderModal = document.getElementById('agent-builder-modal');
+        const agentNameInput = document.getElementById('agentName');
+        const agentDescriptionInput = document.getElementById('agentDescription');
+        const agentPromptInput = document.getElementById('agentPrompt');
+        const addAgentButton = document.getElementById('addAgentButton');
+        const agentItems = document.getElementById('agentItems');
+
+        const agents = JSON.parse(localStorage.getItem('agents')) || {};
+
+        openAgentBuilderButton.addEventListener('click', () => {
+            agentBuilderModal.style.display = 'flex';
+        });
+        closeAgentBuilderButton.addEventListener('click', () => {
+            agentBuilderModal.style.display = 'none';
+        });
+
+        function addAgent(name, description, sysprompt) {
+            if (agents[name]) {
+                alert(`Agent "${name}" already exists. Choose a different name.`);
+                return false;
+            }
+            agents[name] = { description, sysprompt };
+            saveAgents();
+            renderAgents();
+            alert(`Agent "${name}" created successfully.`);
+            return true;
+        }
+
+        function saveAgents() {
+            localStorage.setItem('agents', JSON.stringify(agents));
+        }
+
+        function renderAgents() {
+            agentItems.innerHTML = '';
+            for (const [name, agent] of Object.entries(agents)) {
+                const agentDiv = document.createElement('div');
+                agentDiv.className = 'agent-item';
+                agentDiv.innerHTML = `
+                    <h3>${name}</h3>
+                    <p><strong>Description:</strong> ${agent.description}</p>
+                    <p><strong>System Prompt:</strong></p>
+                    <pre>${agent.sysprompt}</pre>
+                `;
+                agentItems.appendChild(agentDiv);
+            }
+        }
+
+        addAgentButton.addEventListener('click', () => {
+            const name = agentNameInput.value.trim();
+            const description = agentDescriptionInput.value.trim();
+            const sysprompt = agentPromptInput.value.trim();
+
+            if (!name || !description || !sysprompt) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            addAgent(name, description, sysprompt);
+
+            agentNameInput.value = '';
+            agentDescriptionInput.value = '';
+            agentPromptInput.value = '';
+        });
+
+        renderAgents();
+    </script>
 </body>
 </html>
