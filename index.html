@@ -42,13 +42,13 @@
         }
         /* Social Links and Other Elements */
         .jiji {
-            height:auto; 
-            width:100%;
+            height: auto; 
+            width: 100%;
             position: absolute;
             bottom: 0;
             display: flex;
             justify-content: space-evenly;
-            align-items:baseline;
+            align-items: baseline;
             flex-direction: row;
             right: 0;
             margin-bottom: -2rem;
@@ -169,7 +169,7 @@
             }
             .jiji {
                 flex-direction: column;
-                height:100px; 
+                height: 100px; 
                 width: 80%;
                 text-align: center;
             }
@@ -185,26 +185,30 @@
 </head>
 <body>
 
+    <!-- Model Viewer Section -->
     <div class="dede">
         <model-viewer style="height: 100px; width:100px; margin: 10px; background-color: transparent;" auto-rotate camera-controls ar src="./ecoai.glb">
         </model-viewer>
     </div>
 
+    <!-- Social Links (Upper Right) -->
     <div class="logx">
-        <!-- Removed TG Chat link from this section -->
-        <a target="_blank" href="https://t.me/ecoai_sol"><img style="height:50px;" src="/Telegram.png" alt=""></a>
-        <a target="_blank" href="https://www.dextools.io/app/en/solana/pair-explorer/"><img style="height:50px;" src="/dex.png" alt=""></a>
-        <a target="_blank" href="https://x.com/ecoai_solana"><img style="height:50px;" src="/x.png" alt=""></a>
-        <a target="_blank" href="https://youtube.com/@ecoai-sol"><img style="height:50px;" src="/yt.png" alt=""></a>
-        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana"><img style="height:50px;" src="/tt.png" alt=""></a>
+        <a target="_blank" href="https://t.me/ecoai_sol"><img style="height:50px;" src="/Telegram.png" alt="Telegram"></a>
+        <a target="_blank" href="https://www.dextools.io/app/en/solana/pair-explorer/"><img style="height:50px;" src="/dex.png" alt="DexTools"></a>
+        <a target="_blank" href="https://x.com/ecoai_solana"><img style="height:50px;" src="/x.png" alt="X"></a>
+        <a target="_blank" href="https://youtube.com/@ecoai-sol"><img style="height:50px;" src="/yt.png" alt="YouTube"></a>
+        <a target="_blank" href="https://www.tiktok.com/@ecoaisolana"><img style="height:50px;" src="/tt.png" alt="TikTok"></a>
     </div>
 
+    <!-- Deployment Status -->
     <div class="gygy">
         <p>Deploying...</p>
     </div>
 
+    <!-- Terminal Section -->
     <div id="terminal"></div>
 
+    <!-- Footer Links -->
     <div class="jiji">
         <a href="#" id="open-agent-builder">AI Agent Builder</a>
         <a target="_blank" href="https://t.me/+D8FRF0d0Mic0MzU0">TG Chat</a>
@@ -238,7 +242,7 @@
         // Typing animation for terminal
         const terminal = document.getElementById('terminal');
         const text = `
-Project AI Activated. Welcome to the future of intelligent solutions.
+Solbot-AI Activated. Welcome to the future of intelligent solutions.
 
 Our vision: Leverage AI and blockchain to revolutionize the industry, foster innovation, and drive sustainable growth.
 
